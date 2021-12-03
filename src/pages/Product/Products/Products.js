@@ -8,12 +8,13 @@ export default function Products() {
   const navigation = useNavigation();
 
   function navigate(selectedProduct) {
-    navigation.navigate('PrdctDtlPage', {product: selectedProduct});
+    navigation.navigate('ProductDetailPage', {product: selectedProduct});
   }
 
   return (
     <SafeAreaView>
       <FlatList
+        keyExtractor={(item,index)=>item.p_id.toString()}
         data={mockData.products}
         renderItem={({item}) => (
           <ProductCard item={item} onSelect={() => navigate(item)} />
