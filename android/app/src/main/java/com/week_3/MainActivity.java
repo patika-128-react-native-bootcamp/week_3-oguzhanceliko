@@ -14,6 +14,7 @@ public class MainActivity extends ReactActivity {
     return "week_3";
   }
 
+
   @Override
 protected void onCreate(Bundle savedInstanceState) {
   super.onCreate(null);
