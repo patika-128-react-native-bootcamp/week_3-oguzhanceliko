@@ -21,7 +21,8 @@ export default function TableUpdate() {
 
   const {price: total} = table.orders.reduce((p, c) => ({
     price: p.price + c.price,
-  }));
+  }),
+  {price:0});
 
   function handleCloseTable() {
     navigation.navigate('TablesPage', {

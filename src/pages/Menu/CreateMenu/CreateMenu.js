@@ -9,22 +9,27 @@ import styles from './CreateMenu.styles';
 
 export default function CreateMenu() {
   const navigation = useNavigation();
-  const [name, setName] = useState();
-  const [description, setDescription] = useState();
-  const [ingredients, setIngredients] = useState();
-  const [price, setPrice] = useState();
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [ingredients, setIngredients] = useState("");
+  const [price, setPrice] = useState(0);
 
   const route = useRoute();
 
   function handleNavigateDetail() {
-    const fd = {
+
+    if(name=='' || description=='' || ingredients=='' || price=='')
+    {
+      return;
+    }
+    const data = {
       name: name,
       description: description,
       ingredients: ingredients,
       price: price,
     };
 
-    navigation.navigate('MenuDetailPage', {fd});
+    navigation.navigate('MenuDetailPage', {data});
   }
 
   return (
